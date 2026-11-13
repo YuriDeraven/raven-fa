@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Raven Football Academy</title>
+<meta name="description" content="Raven Football Academy: youth elite football development in Apo Resettlement, Abuja. Trials open for U-5s – 8s, U-10, U-13 and U-16.">
+<meta name="theme-color" content="#14061c">
+<link rel="icon" type="image/png" href="./assets/logos/logo-deep-purple.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <div class="nav__inner wrap">
+    <a class="nav__brand" href="#home" aria-label="Raven Football Academy, home">
+      <img src="./assets/logos/logo-deep-purple.png" alt="" width="40" height="62">
+      <span class="nav__name">Raven<small>Football Academy</small></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#home" data-link>Home</a>
+      <a href="#activities" data-link>Activities</a>
+      <a href="#players" data-link>Players</a>
+      <a href="#programs" data-link>Programs</a>
+      <a href="#contact" data-link>Contact</a>
+      <a class="btn btn--gold nav__cta-mobile" href="#contact">Join Trials</a>
+    </nav>
+    <a class="btn btn--gold nav__cta" href="#contact">Join Trials</a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="home">
+  <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero__grain" aria-hidden="true"></div>
+  <div class="hero__inner wrap">
+    <p class="hero__eyebrow"><span class="dot"></span> Trials open · Apo Resettlement, Abuja</p>
+    <h1 class="hero__title" aria-label="Rise with the Raven">
+      <span class="line"><span class="word">RISE</span></span>
+      <span class="line"><span class="word word--outline">WITH THE</span></span>
+      <span class="line"><span class="word word--gold">RAVEN.</span></span>
+    </h1>
+    <p class="hero__sub">Youth elite football development for players from <strong>U-5s to U-16</strong>. Real coaching, real matches, and a clear path to the next level.</p>
+    <div class="hero__cta">
+      <a class="btn btn--gold btn--lg" href="#players">Explore Roster <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn btn--ghost btn--lg" href="#academy-info">Academy Schedule</a>
+    </div>
+    <p class="hero__hint" aria-hidden="true">Move your cursor over the ball</p>
+  </div>
+  <a class="hero__scroll" href="#activities" aria-label="Scroll to activities"><span></span></a>
+</section>
+
+<!-- ============================ TICKER ============================ -->
+<div class="ticker" aria-hidden="true"><div class="ticker__track" id="tickerTrack"></div></div>
+
+<!-- ============================ STATS ============================ -->
+<section class="stats wrap" aria-label="Academy at a glance">
+  <ul class="stats__list" id="statsList"></ul>
+</section>
+
+<!-- ============================ ACTIVITIES ============================ -->
+<section class="section" id="activities">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow">News &amp; activities</p>
+      <h2 class="h2">On the pitch <em>this month</em></h2>
+    </header>
+
+    <div class="split">
+      <div class="feed">
+        <div class="chips" id="feedChips" role="tablist" aria-label="Filter activities"></div>
+        <div class="feed__grid" id="feedGrid"></div>
+      </div>
+
+      <aside class="side" id="academy-info" aria-label="Academy information">
+        <div class="side__card side__card--info">
+          <img class="side__crest" src="./assets/logos/logo-gold.png" alt="" aria-hidden="true">
+          <h3 class="side__title">Academy info</h3>
+
+          <dl class="info">
+            <div class="info__row">
+              <dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Training ground</dt>
+              <dd id="infoAddress"></dd>
+            </div>
+            <div class="info__row">
+              <dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Training days &amp; hours</dt>
+              <dd><ul class="sched" id="infoSchedule"></ul></dd>
+            </div>
+            <div class="info__row">
+              <dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 19c.6-3 2.7-4.6 5.5-4.6s4.9 1.6 5.5 4.6M16 11.5a2.8 2.8 0 1 0-.8-5.4M17.5 14.6c1.8.4 3 1.8 3.5 4.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Age brackets</dt>
+              <dd><ul class="tags" id="infoBrackets"></ul></dd>
+            </div>
+            <div class="info__row">
+              <dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Contact</dt>
+              <dd id="infoContact"></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="side__card side__card--book">
+          <p class="eyebrow eyebrow--dark">Next open trial</p>
+          <p class="book__date" id="bookDate">Sat 21 Nov</p>
+          <p class="book__text">Ages U-5s – 8s to U-16. Register now and arrive 15 minutes early.</p>
+          <a class="btn btn--dark btn--block" href="#contact" data-prefill-bracket="">Book a Trial</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SQUAD ============================ -->
+<section class="section section--alt" id="players">
+  <div class="wrap">
+    <header class="section__head section__head--row">
+      <div>
+        <p class="eyebrow">The Squad</p>
+        <h2 class="h2">Meet the <em>Ravens</em></h2>
+      </div>
+      <p class="section__lede">Sample profiles of the players in the pathway. Tap a card for the full scouting report.</p>
+    </header>
+
+    <div class="chips chips--lg" id="squadChips" role="tablist" aria-label="Filter players by position"></div>
+    <div class="squad" id="squadGrid" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============================ PROGRAMS ============================ -->
+<section class="section" id="programs">
+  <div class="wrap">
+    <header class="section__head section__head--row">
+      <div>
+        <p class="eyebrow">Training programs &amp; pathways</p>
+        <h2 class="h2">Four stages, <em>one pathway</em></h2>
+      </div>
+      <p class="section__lede">Each age bracket has its own coaching plan. Players move up as their football grows.</p>
+    </header>
+
+    <ol class="path" id="pathGrid"></ol>
+
+    <div class="costs">
+      <div class="costs__fees">
+        <h3 class="h3">Fees</h3>
+        <ul class="fees" id="feesList"></ul>
+      </div>
+      <div class="costs__docs">
+        <h3 class="h3">What to bring when you register</h3>
+        <ul class="docs" id="docsList"></ul>
+        <div class="acc" id="conductAcc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FACILITIES ============================ -->
+<section class="section section--alt" id="facilities">
+  <div class="wrap">
+    <header class="section__head section__head--row">
+      <div>
+        <p class="eyebrow">Facilities &amp; coaching</p>
+        <h2 class="h2">Built for <em>real football</em></h2>
+      </div>
+      <p class="section__lede">A proper pitch, structured sessions and coaches who know what each age group needs.</p>
+    </header>
+
+    <div class="fac" id="facGrid"></div>
+
+    <div class="method" id="methodRow"></div>
+
+    <div class="kit">
+      <div class="kit__copy">
+        <p class="eyebrow">The kit</p>
+        <h3 class="h2 h2--sm">Wear the <em>crest</em></h3>
+        <p>Every player wears the official Raven jersey on matchdays and in training. Boots and shin guards complete the kit. Concept renders shown here.</p>
+      </div>
+      <div class="kit__row" id="kitRow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT / TRIAL FORM ============================ -->
+<section class="section" id="contact">
+  <div class="wrap contact">
+    <div class="contact__intro">
+      <p class="eyebrow">Trial registration</p>
+      <h2 class="h2">Ready to <em>try out?</em></h2>
+      <p class="contact__lede">Fill in the details and we will confirm your trial slot. No payment is taken on this page. Registration fees are paid at the academy after the trial.</p>
+      <ul class="contact__points">
+        <li>Open to all players in the U-5s – 8s, U-10, U-13 and U-16 brackets</li>
+        <li>Bring boots, shin guards and water</li>
+        <li>Arrive 15 minutes before the session</li>
+      </ul>
+      <img class="contact__crest" src="./assets/logos/logo-deep-purple.png" alt="" aria-hidden="true">
+    </div>
+
+    <div class="formcard" id="formCard">
+      <form id="trialForm" novalidate>
+        <fieldset>
+          <legend>Player</legend>
+          <div class="grid2">
+          <div class="field field--full">
+            <label for="playerName">Player's full name</label>
+            <input id="playerName" name="playerName" type="text" autocomplete="off" required>
+            <p class="err" data-err="playerName"></p>
+          </div>
+          <div class="field">
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" inputmode="numeric" min="4" max="17" required>
+            <p class="err" data-err="age"></p>
+          </div>
+          <div class="field">
+            <label for="bracket">Age bracket</label>
+            <select id="bracket" name="bracket" required>
+              <option value="">Select bracket</option>
+            </select>
+            <p class="err" data-err="bracket"></p>
+          </div>
+          <div class="field">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+              <option value="">Select</option><option>Male</option><option>Female</option>
+            </select>
+            <p class="err" data-err="gender"></p>
+          </div>
+          <div class="field">
+            <label for="foot">Preferred foot</label>
+            <select id="foot" name="foot" required>
+              <option value="">Select</option><option>Right</option><option>Left</option><option>Both</option>
+            </select>
+            <p class="err" data-err="foot"></p>
+          </div>
+          <div class="field field--full">
+            <span class="label" id="posLabel">Preferred position</span>
+            <div class="seg" role="radiogroup" aria-labelledby="posLabel" id="posSeg">
+              <label><input type="radio" name="position" value="Goalkeeper"><span>GK</span></label>
+              <label><input type="radio" name="position" value="Defender"><span>DEF</span></label>
+              <label><input type="radio" name="position" value="Midfielder"><span>MID</span></label>
+              <label><input type="radio" name="position" value="Forward"><span>FWD</span></label>
+            </div>
+            <p class="err" data-err="position"></p>
+          </div>
+          <div class="field field--full">
+            <label for="club">Previous club or school team <span class="opt">optional</span></label>
+            <input id="club" name="club" type="text" autocomplete="off">
+          </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Parent or guardian</legend>
+          <div class="grid2">
+          <div class="field field--full">
+            <label for="guardian">Full name</label>
+            <input id="guardian" name="guardian" type="text" autocomplete="name" required>
+            <p class="err" data-err="guardian"></p>
+          </div>
+          <div class="field">
+            <label for="phone">Phone / WhatsApp</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0816 000 0000" required>
+            <p class="err" data-err="phone"></p>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="opt">optional</span></label>
+            <input id="email" name="email" type="email" autocomplete="email">
+            <p class="err" data-err="email"></p>
+          </div>
+          <div class="field field--full">
+            <label for="slot">Preferred trial date</label>
+            <select id="slot" name="slot" required><option value="">Select a date</option></select>
+            <p class="err" data-err="slot"></p>
+          </div>
+          </div>
+        </fieldset>
+
+        <button class="btn btn--gold btn--lg btn--block" type="submit" id="submitBtn">Book my trial</button>
+        <p class="fine">We do not store anything from this form. Your details go straight to the academy when you choose to send them on WhatsApp.</p>
+      </form>
+
+      <div class="done" id="done" hidden tabindex="-1">
+        <div class="done__check" aria-hidden="true">
+          <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="3"/><path d="M15 27l8 8 14-17" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="h3" id="doneTitle">Trial request ready</h3>
+        <p class="done__ref">Reference <strong id="doneRef"></strong></p>
+        <dl class="done__sum" id="doneSum"></dl>
+        <p class="done__note">One last step: send these details to the academy on WhatsApp so a coach can confirm your slot.</p>
+        <a class="btn btn--gold btn--lg btn--block" id="waBtn" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
+        <button class="btn btn--ghost btn--block" type="button" id="againBtn">Register another player</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <div class="foot__brand">
+      <img src="./assets/logos/logo-gold.png" alt="Raven Football Academy crest" width="88" height="140">
+      <p class="foot__tag">Youth Elite Football Development</p>
+      <p class="foot__small" id="footLegal"></p>
+    </div>
+    <nav class="foot__nav" aria-label="Footer">
+      <h4>Explore</h4>
+      <a href="#activities">Activities</a>
+      <a href="#players">Players</a>
+      <a href="#programs">Programs</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#contact">Join Trials</a>
+    </nav>
+    <div class="foot__contact">
+      <h4>Visit &amp; call</h4>
+      <p id="footAddress"></p>
+      <p id="footPhones"></p>
+      <ul class="social" id="socialList"></ul>
+    </div>
+  </div>
+  <div class="wrap foot__bar">
+    <span id="footCopy"></span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<!-- ============================ PLAYER MODAL ============================ -->
+<div class="modal" id="modal" hidden>
+  <div class="modal__backdrop" id="modalBackdrop"></div>
+  <article class="modal__panel" id="modalPanel" role="dialog" aria-modal="true" aria-labelledby="modalName" tabindex="-1"></article>
+</div>
+
+<script src="./js/data.js"></script>
+<script src="./js/hero3d.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
